@@ -1,131 +1,294 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Astral by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karim El Khoury - Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Using a common font like Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; /* Prevent body scrolling */
+        }
+        
+        /* Custom transition for panels */
+        .panel {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
 
-		<div id="wrapper">
+        /* Base panel state (hidden) */
+        .panel:not(.active) {
+            opacity: 0;
+            transform: translateX(100%);
+            pointer-events: none;
+        }
 
-				<nav id="nav">
-						<a href="#" class="icon solid fa-home"><span>Home</span></a>
-						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
-						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="https://twitter.com/" class="icon brands fa-twitter"><span>Twitter</span></a>
-					</nav>
+        /* Active panel state (visible) */
+        .panel.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
 
-				<div id="main">
+        /* Handle the initial "home" panel display without transition on load */
+        .panel.active.no-transition {
+            opacity: 1;
+            transform: translateX(0);
+            transition: none;
+        }
 
-						<article id="home" class="panel intro">
-								<header>
-									<h1>Karim El Khoury</h1>
-									<p>PhD in Image Processing and Computer Vision</p>
-									<p>
-										Website Coming Soon
-									</p>
-								</header>
-								<a href="#work" class="jumplink pic">
-									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-									<img src="images/me.jpg" alt="" />
-								</a>
-							</article>
+        /* Styling for the nav link's active state */
+        nav a.active {
+            @apply bg-cyan-600 text-white;
+        }
 
-						<article id="work" class="panel">
-								<header>
-									<h2>Work</h2>
-								</header>
-								<p>
-									Website Coming Soon
-								</p>
-								<section>
-									<div class="row">
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-										</div>
-									</div>
-								</section>
-							</article>
+        /* Mobile-first: nav at top */
+        @media (min-width: 768px) {
+            /* On desktop, move nav to the left */
+            nav {
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 5rem; /* 80px */
+            }
+            main {
+                margin-left: 5rem; /* 80px */
+                height: 100vh;
+            }
+            footer {
+                left: 5rem; /* 80px */
+                width: calc(100% - 5rem);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 h-full">
 
-						<article id="contact" class="panel">
-								<header>
-									<h2>Contact Me</h2>
-								</header>
-								<form action="#" method="post">
-									<div>
-										<div class="row">
-											<div class="col-6 col-12-medium">
-												<input type="text" name="name" placeholder="Name" />
-											</div>
-											<div class="col-6 col-12-medium">
-												<input type="text" name="email" placeholder="Email" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="subject" placeholder="Subject" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Message" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Send Message" />
-											</div>
-										</div>
-									</div>
-								</form>
-							</article>
+    <div id="wrapper" class="h-full relative">
 
-					</div>
+        <!-- Navigation -->
+        <!-- Mobile: Top Bar, Desktop: Left Bar -->
+        <nav class="fixed z-20 bg-gray-800 w-full h-16 top-0 md:w-20 md:h-full md:left-0">
+            <div class="flex md:flex-col justify-around md:justify-start md:items-center h-full md:py-10 md:space-y-8">
+                
+                <!-- Home Link -->
+                <a href="#home" data-target="home" class="nav-link active group p-3 rounded-lg hover:bg-cyan-500 hover:text-white transition-colors duration-200">
+                    <span class="sr-only">Home</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2a1 1 0 01-1-1v-4z"></path></svg>
+                </a>
+                
+                <!-- Work Link -->
+                <a href="#work" data-target="work" class="nav-link group p-3 rounded-lg hover:bg-cyan-500 hover:text-white transition-colors duration-200">
+                    <span class="sr-only">Work</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </a>
 
-				<div id="footer">
-						<ul class="copyright">
-							<li>&copy; Karim El Khoury 2025.
-						</ul>
-					</div>
+                <!-- Contact Link -->
+                <a href="#contact" data-target="contact" class="nav-link group p-3 rounded-lg hover:bg-cyan-500 hover:text-white transition-colors duration-200">
+                    <span class="sr-only">Contact</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </a>
 
-			</div>
+                <!-- Twitter Link -->
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="group p-3 rounded-lg hover:bg-cyan-500 hover:text-white transition-colors duration-200">
+                    <span class="sr-only">Twitter</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                    </svg>
+                </a>
+            </div>
+        </nav>
 
-		<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        <!-- Main Content Area -->
+        <!-- Mobile: Full width below nav, Desktop: Full height beside nav -->
+        <main class="relative w-full h-full pt-16 md:pt-0 md:ml-20 overflow-y-auto">
 
-	</body>
+            <!-- Home Panel -->
+            <article id="home" class="panel active no-transition absolute inset-0 p-8 md:p-16 flex items-center justify-center">
+                <div class="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
+                    <!-- Profile Image -->
+                    <a href="#work" data-target="work" class="jumplink block w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
+                        <img src="https://placehold.co/400x400/1e40af/ffffff?text=Karim" alt="Karim El Khoury" class="rounded-full shadow-2xl border-4 border-gray-700 w-full h-full object-cover">
+                    </a>
+                    <!-- Intro Text -->
+                    <header class="text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Karim El Khoury</h1>
+                        <p class="text-xl md:text-2xl text-cyan-400 mb-4">PhD in Image Processing and Computer Vision</p>
+                        <p class="text-lg text-gray-400">
+                            Hi there! My name is Karim El Khoury, I am Belgo-Lebanese and I hold a PhD in Image Processing and Computer Vision. My main research interests are around efficient analysis of large-scale images, particularly in the use case of remote sensing and medical imaging.
+                        </p>
+                        <p class="text-lg text-gray-400 mt-4">
+                            I am currently doing my Postdoc at UCLouvain in Belgium under Prof. Benoit Macq <a href="#" class="text-cyan-400 hover:underline">(link)</a> and Prof. Christophe de Vleeschouwer <a href="#" class="text-cyan-400 hover:underline">(link)</a>.
+                        </p>
+                    </header>
+                </div>
+            </article>
+
+            <!-- Work Panel -->
+            <article id="work" class="panel absolute inset-0 p-8 md:p-16 overflow-y-auto">
+                <div class="max-w-6xl mx-auto">
+                    <header class="mb-12">
+                        <h2 class="text-4xl font-bold text-white text-center">Work</h2>
+                    </header>
+                    <p class="text-lg text-gray-400 text-center mb-12">
+                        Website Coming Soon
+                    </p>
+                    <!-- Image Gallery -->
+                    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Placeholder images -->
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+1" alt="pic01" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+2" alt="pic02" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+3" alt="pic03" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+4" alt="pic04" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+5" alt="pic05" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+6" alt="pic06" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+7" alt="pic07" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+8" alt="pic08" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+9" alt="pic09" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+10" alt="pic10" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+11" alt="pic11" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <a href="#" class="block rounded-lg overflow-hidden shadow-lg group">
+                            <img src="https://placehold.co/600x400/374151/9ca3af?text=Project+12" alt="pic12" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </section>
+                </div>
+            </article>
+
+            <!-- Contact Panel -->
+            <article id="contact" class="panel absolute inset-0 p-8 md:p-16 flex items-center justify-center">
+                <div class="max-w-2xl mx-auto w-full">
+                    <header class="mb-12">
+                        <h2 class="text-4xl font-bold text-white text-center">Contact Me</h2>
+                    </header>
+                    <!-- Contact Form -->
+                    <form action="#" method="post" class="space-y-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <input type="text" name="name" placeholder="Name" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+                            <input type="email" name="email" placeholder="Email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+                        </div>
+                        <div>
+                            <input type="text" name="subject" placeholder="Subject" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+                        </div>
+                        <div>
+                            <textarea name="message" placeholder="Message" rows="6" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+                        </div>
+                        <div>
+                            <input type="submit" value="Send Message" class="w-full p-3 rounded-lg bg-cyan-600 text-white font-bold cursor-pointer hover:bg-cyan-700 transition-colors duration-300" />
+                        </div>
+                    </form>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- Footer -->
+        <!-- Mobile: Bottom Bar, Desktop: Bottom Bar beside nav -->
+        <footer class="fixed bottom-0 left-0 z-10 w-full h-12 bg-gray-800/80 backdrop-blur-sm md:left-20 md:w-[calc(100%-5rem)]">
+            <div class="flex items-center justify-center h-full">
+                <p class="text-sm text-gray-400">&copy; Karim El Khoury 2025.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const jumpLinks = document.querySelectorAll('.jumplink');
+            const panels = document.querySelectorAll('.panel');
+            const homePanel = document.getElementById('home');
+
+            // Function to handle navigation
+            function navigateTo(targetId) {
+                // Deactivate all panels
+                panels.forEach(panel => {
+                    panel.classList.remove('active', 'no-transition');
+                });
+                
+                // Activate target panel
+                const targetPanel = document.getElementById(targetId);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+
+                // Update nav link active state
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.target === targetId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Add click listeners to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.currentTarget.dataset.target;
+                    navigateTo(targetId);
+                    
+                    // Update URL hash without page jump
+                    if(history.pushState) {
+                        history.pushState(null, null, `#${targetId}`);
+                    } else {
+                        location.hash = `#${targetId}`;
+                    }
+                });
+            });
+
+            // Add click listeners to jump links (like the profile picture)
+            jumpLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.currentTarget.dataset.target;
+                    navigateTo(targetId);
+                });
+            });
+
+            // Handle initial page load based on URL hash
+            const initialHash = window.location.hash.substring(1);
+            if (initialHash) {
+                // If there's a hash, transition to it
+                homePanel.classList.remove('no-transition'); // Ensure home isn't blocking
+                navigateTo(initialHash);
+            } else {
+                // Otherwise, just ensure home is active with no transition
+                navigateTo('home');
+                homePanel.classList.add('no-transition');
+            }
+            
+            // Handle browser back/forward navigation
+            window.addEventListener('popstate', () => {
+                const hash = window.location.hash.substring(1) || 'home';
+                navigateTo(hash);
+            });
+        });
+    </script>
+
+</body>
 </html>
-
