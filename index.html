@@ -4,10 +4,9 @@
 		<title>Astral by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Font Awesome for icons -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic" rel="stylesheet" type="text/css" />
+
 		<style>
 			/*
 				Astral by HTML5 UP
@@ -111,7 +110,7 @@
 				z-index: 2;
 			}
 
-			/* BG */
+			/* BG - The original template had an #bg element, although it wasn't strictly necessary with body background set */
 			#bg {
 				position: fixed;
 				top: 0;
@@ -163,14 +162,19 @@
 
 			/* Icons */
 			.icon:before {
-				font-family: FontAwesome;
+				/* FontAwesome is loaded via link in head */
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900; /* Required for solid icons (fa-home, etc.) */
 				font-style: normal;
-				font-weight: normal;
 				text-transform: none !important;
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
 				margin-right: 0.75em;
 			}
+			.icon.brands:before {
+				font-weight: 400; /* Required for brand icons (fa-twitter, etc.) */
+			}
+
 
 			/* Main */
 			#main {
@@ -179,7 +183,9 @@
 			}
 			#main article {
 				display: none;
+				/* is-preload is handled by JS but we ensure the initial state is hidden */
 			}
+			/* This class is added by JS on activation */
 			#main article.active {
 				display: block;
 			}
@@ -192,6 +198,11 @@
 			}
 			.panel.intro h1 {
 				font-size: 3.5em;
+			}
+			.panel.intro p {
+				font-size: 1.25em;
+				font-weight: 400;
+				color: #aaa;
 			}
 			.panel.intro .pic {
 				position: relative;
@@ -214,9 +225,13 @@
 				line-height: 6em;
 				font-size: 1.25em;
 				cursor: pointer;
+				/* Added: Makes the arrow look better */
+				border-radius: 50%;
+				opacity: 0.9;
 			}
 			.panel.intro .pic .arrow:hover {
 				background: #4fbdde;
+				opacity: 1;
 			}
 
 			/* Work */
@@ -237,11 +252,18 @@
 			.image.fit {
 				display: block;
 				width: 100%;
+				border-radius: 4px; /* Added rounded corners */
+				overflow: hidden;
 			}
 			.image.fit img {
 				display: block;
 				width: 100%;
+				transition: transform 0.3s ease; /* Added hover effect */
 			}
+			.image.fit a:hover img {
+				transform: scale(1.05);
+			}
+
 			.row > .col-4 {
 				padding: 0 2em 2em 0;
 			}
@@ -267,7 +289,7 @@
 				padding: 1em;
 				color: #fff;
 				font-size: 1em;
-				border-radius: 0;
+				border-radius: 4px; /* Added rounded corners */
 			}
 			form textarea {
 				min-height: 12em;
@@ -281,7 +303,8 @@
 				padding: 1em 2em;
 				font-size: 1em;
 				cursor: pointer;
-				border-radius: 0;
+				border-radius: 4px; /* Added rounded corners */
+				transition: background 0.2s ease;
 			}
 			form input[type=submit]:hover {
 				background: #4fbdde;
@@ -298,6 +321,10 @@
 				font-size: 0.8em;
 				color: #666;
 				z-index: 3;
+			}
+			#footer a {
+				color: #666;
+				border-bottom-color: dotted 1px #666;
 			}
 			#footer .copyright {
 				margin: 0;
@@ -328,6 +355,7 @@
 					top: auto;
 					left: auto;
 					width: 100%;
+					height: auto; /* Allow height to adjust */
 					text-align: center;
 					padding: 1.5em 1.5em;
 				}
@@ -377,7 +405,7 @@
 					padding: 0 1.5em 1.5em 0;
 				}
 				.row > .col-4:nth-child(3n) {
-					padding-right: 1.5em;
+					padding-right: 1.5em; /* Ensure 2-column layout spacing is correct */
 				}
 				.row > .col-4:nth-child(2n) {
 					padding-right: 0;
@@ -398,10 +426,7 @@
 					width: 100%;
 					padding: 0 0 1.5em 0;
 				}
-				.row > .col-4:nth-child(3n) {
-					padding-right: 0;
-				}
-				.row > .col-4:nth-child(2n) {
+				.row > .col-4:nth-child(3n), .row > .col-4:nth-child(2n) {
 					padding-right: 0;
 				}
 				.row:last-child > .col-4 {
@@ -417,35 +442,41 @@
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Nav -->
-					<nav id="nav">
+				<nav id="nav">
 						<a href="#home" class="icon solid fa-home"><span>Home</span></a>
 						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter" target="_blank" rel="noopener noreferrer"><span>Twitter</span></a>
+						<a href="https://twitter.com" class="icon brands fa-twitter" target="_blank" rel="noopener noreferrer"><span>Twitter</span></a>
 					</nav>
 
-				<!-- Main -->
-					<div id="main">
+				<div id="main">
 
-						<!-- Me -->
-							<article id="home" class="panel intro">
+						<article id="home" class="panel intro">
 								<header>
-									<h1>Jane Doe</h1>
-									<p>Senior Astral Projectionist</p>
+									<h1>Karim El Khoury</h1>
+									<p>PhD in Image Processing and Computer Vision</p>
 								</header>
+								<p>
+									Hi there!
+								</p>
+								<p>
+									My name is **Karim El Khoury**, I am Belgo-Lebanese and I hold a PhD in Image Processing and Computer Vision. 
+									My main research interests are around efficient analysis of large-scale images, particularly in the use case of remote sensing and medical imaging.
+								</p>
+								<p>
+									I am currently doing my Postdoc at UCLouvain in Belgium under 
+									<a href="https://placeholder-url-benoit-macq.com" target="_blank" rel="noopener noreferrer">Prof Benoit Macq</a> and 
+									<a href="https://placeholder-url-christophe-de-vleeshower.com" target="_blank" rel="noopener noreferrer">Prof. Christophe de Vleeshower</a>.
+								</p>
 								<a href="#work" class="jumplink pic">
 									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-									<!-- Using a placeholder image for me.jpg -->
-									<img src="https://placehold.co/800x533/3fadd4/ffffff?text=Jane+Doe" alt="Jane Doe" />
+									<img src="https://placehold.co/800x533/3fadd4/ffffff?text=Karim+El+Khoury" alt="Karim El Khoury Portrait" onerror="this.onerror=null; this.src='https://placehold.co/800x533/3fadd4/ffffff?text=Karim+El+Khoury';" />
 								</a>
 							</article>
 
-						<!-- Work -->
-							<article id="work" class="panel">
+						<article id="work" class="panel">
 								<header>
 									<h2>Work</h2>
 								</header>
@@ -456,49 +487,47 @@
 								</p>
 								<section>
 									<div class="row">
-										<!-- Placeholder images for the gallery -->
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+01" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+01" alt="Work Gallery Image 1"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+02" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+02" alt="Work Gallery Image 2"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+03" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+03" alt="Work Gallery Image 3"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+04" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+04" alt="Work Gallery Image 4"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+05" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+05" alt="Work Gallery Image 5"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+06" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+06" alt="Work Gallery Image 6"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+07" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+07" alt="Work Gallery Image 7"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+08" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+08" alt="Work Gallery Image 8"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+09" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+09" alt="Work Gallery Image 9"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+10" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+10" alt="Work Gallery Image 10"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+11" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+11" alt="Work Gallery Image 11"></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+12" alt=""></a>
+											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+12" alt="Work Gallery Image 12"></a>
 										</div>
 									</div>
 								</section>
 							</article>
 
-						<!-- Contact -->
-							<article id="contact" class="panel">
+						<article id="contact" class="panel">
 								<header>
 									<h2>Contact Me</h2>
 								</header>
@@ -527,21 +556,19 @@
 
 					</div>
 
-				<!-- Footer -->
-					<div id="footer">
+				<div id="footer">
 						<ul class="copyright">
-							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a></li>
 						</ul>
 					</div>
 
 			</div>
 
-		<!-- Scripts -->
-			<!-- jQuery -->
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-			
-			<!-- Custom Panel Navigation Logic -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 			<script>
+				// This script re-implements the original panel navigation logic using jQuery
+				// It handles showing/hiding panels based on the URL hash and clicks on nav links/jumplinks.
 				$(function() {
 
 					var $window = $(window),
@@ -549,59 +576,53 @@
 						$nav = $('#nav'),
 						$main = $('#main');
 
-					// Settings
-					var settings = {
-						// Speed to show/hide panels
-						speed: 600
-					};
-
-					// Deactivate all panels
+					// Deactivate all panels initially (CSS handles initial visibility, this ensures correct state)
 					$main.find('article').addClass('inactive');
 
-					// Activate panel
+					// Function to handle panel activation
 					var activatePanel = function(id) {
+
+						// Ensure jQuery is available and elements exist
+						if (!$main.find(id).length) return;
 						
-						// Deactivate all panels
-						$main.find('article').addClass('inactive');
-						
-						// Deactivate all nav links
+						// Deactivate all panels and nav links
+						$main.find('article').removeClass('active').addClass('inactive');
 						$nav.find('a').removeClass('active');
 						
-						// Activate nav link
+						// Activate the target panel and nav link
+						$main.find(id).removeClass('inactive').addClass('active');
 						$nav.find('a[href="' + id + '"]').addClass('active');
 						
-						// Activate panel
-						var $panel = $main.find(id);
-						$panel.removeClass('inactive');
-						
-						// Trigger resize to fix any layout issues
+						// Trigger resize to fix any layout issues, although less critical with responsive design
 						$window.trigger('resize');
 					};
 
-					// Nav links
+					// Nav links and jumplinks click handler
 					$nav.find('a').add($('.jumplink')).on('click', function(e) {
-						e.preventDefault();
-						
 						var href = $(this).attr('href');
-						
-						// If already active, do nothing
-						if ($nav.find('a[href="' + href + '"]').hasClass('active')) {
-							return;
-						}
 
-						// Activate
-						activatePanel(href);
-						
-						// Update hash
-						window.location.hash = href;
+						// Check if the link is an internal panel link (starts with #)
+						if (href.startsWith('#')) {
+							e.preventDefault();
+
+							// If already active, do nothing
+							if ($nav.find('a[href="' + href + '"]').hasClass('active')) {
+								return;
+							}
+
+							// Activate the panel and update hash
+							activatePanel(href);
+							window.location.hash = href;
+						}
+						// External links (like Twitter) are allowed to proceed naturally
 					});
 
-					// Hashchange event
+					// Hashchange event handler for direct URL access or back/forward buttons
 					$window.on('hashchange', function(e) {
 						var href = window.location.hash;
 						
 						// If hash is empty or doesn't match a panel, default to #home
-						if (href == '' || !$main.find(href).length) {
+						if (href === '' || !$main.find(href).length) {
 							href = '#home';
 						}
 						
@@ -609,15 +630,15 @@
 						activatePanel(href);
 					});
 
-					// Initial load
+					// Initial load: check hash or default to #home
 					var initialHash = window.location.hash;
-					if (initialHash != '' && $main.find(initialHash).length) {
+					if (initialHash !== '' && $main.find(initialHash).length) {
 						activatePanel(initialHash);
 					} else {
 						activatePanel('#home');
 					}
 					
-					// Remove preload class
+					// Remove preload class to enable CSS transitions/animations
 					$body.removeClass('is-preload');
 
 				});
