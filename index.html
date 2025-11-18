@@ -1,457 +1,32 @@
 <!DOCTYPE HTML>
+<!--
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head>
 		<title>Astral by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic" rel="stylesheet" type="text/css" />
-
-		<style>
-			/*
-				Astral by HTML5 UP
-				html5up.net | @ajlkn
-				Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-			*/
-
-			/* Reset */
-			html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-				margin: 0;
-				padding: 0;
-				border: 0;
-				font-size: 100%;
-				font: inherit;
-				vertical-align: baseline;
-			}
-			article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-				display: block;
-			}
-			body {
-				line-height: 1;
-			}
-			ol, ul {
-				list-style: none;
-			}
-			blockquote, q {
-				quotes: none;
-			}
-			blockquote:before, blockquote:after, q:before, q:after {
-				content: '';
-				content: none;
-			}
-			table {
-				border-collapse: collapse;
-				border-spacing: 0;
-			}
-			body {
-				-webkit-text-size-adjust: none;
-			}
-
-			/* Box Model */
-			*, *:before, *:after {
-				-moz-box-sizing: border-box;
-				-webkit-box-sizing: border-box;
-				box-sizing: border-box;
-			}
-
-			/* Basic */
-			body {
-				background: #111;
-				font-family: 'Source Sans Pro', sans-serif;
-				font-size: 19pt;
-				font-weight: 300;
-				line-height: 1.75em;
-				color: #fff;
-			}
-
-			input, textarea, select {
-				font-family: 'Source Sans Pro', sans-serif;
-				font-size: 19pt;
-				font-weight: 300;
-				line-height: 1.75em;
-				color: #fff;
-			}
-
-			h1, h2, h3, h4, h5, h6 {
-				font-weight: 400;
-				color: #fff;
-				line-height: 1.5em;
-			}
-			h1 { font-size: 2.5em; }
-			h2 { font-size: 1.75em; margin-bottom: 1em; }
-			h3 { font-size: 1.35em; }
-
-			p {
-				margin: 0 0 1em 0;
-			}
-
-			a {
-				color: #3fadd4;
-				text-decoration: none;
-				border-bottom: dotted 1px;
-				-moz-transition: border-bottom-color 0.25s ease-in-out, color 0.25s ease-in-out;
-				-webkit-transition: border-bottom-color 0.25s ease-in-out, color 0.25s ease-in-out;
-				-ms-transition: border-bottom-color 0.25s ease-in-out, color 0.25s ease-in-out;
-				transition: border-bottom-color 0.25s ease-in-out, color 0.25s ease-in-out;
-			}
-			a:hover {
-				border-bottom-color: transparent;
-				color: #4fbdde;
-			}
-
-			/* Wrapper */
-			#wrapper {
-				position: relative;
-				padding-left: 350px;
-				min-height: 100vh;
-			}
-			#wrapper > * {
-				position: relative;
-				z-index: 2;
-			}
-
-			/* BG - The original template had an #bg element, although it wasn't strictly necessary with body background set */
-			#bg {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: #111;
-				z-index: 1;
-			}
-
-			/* Nav */
-			#nav {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 350px;
-				height: 100%;
-				background: #222;
-				text-align: right;
-				padding: 3em 2.5em 3em 2.5em;
-				z-index: 3;
-			}
-			#nav a {
-				display: block;
-				color: #aaa;
-				text-decoration: none;
-				font-weight: 400;
-				border: 0;
-				margin: 1em 0 0 0;
-				font-size: 1.25em;
-				line-height: 1.5em;
-			}
-			#nav a:first-child {
-				margin: 0;
-			}
-			#nav a.active {
-				color: #fff;
-			}
-			#nav a span {
-				display: inline-block;
-				border-bottom: dotted 1px;
-			}
-			#nav a.active span {
-				border-bottom-color: transparent;
-			}
-			#nav a:hover {
-				color: #fff;
-			}
-
-			/* Icons */
-			.icon:before {
-				/* FontAwesome is loaded via link in head */
-				font-family: 'Font Awesome 5 Free';
-				font-weight: 900; /* Required for solid icons (fa-home, etc.) */
-				font-style: normal;
-				text-transform: none !important;
-				-moz-osx-font-smoothing: grayscale;
-				-webkit-font-smoothing: antialiased;
-				margin-right: 0.75em;
-			}
-			.icon.brands:before {
-				font-weight: 400; /* Required for brand icons (fa-twitter, etc.) */
-			}
-
-
-			/* Main */
-			#main {
-				position: relative;
-				overflow: hidden;
-			}
-			#main article {
-				display: none;
-				/* is-preload is handled by JS but we ensure the initial state is hidden */
-			}
-			/* This class is added by JS on activation */
-			#main article.active {
-				display: block;
-			}
-
-			.panel {
-				padding: 6em 4em 4em 4em;
-			}
-			.panel.intro {
-				padding-bottom: 0;
-			}
-			.panel.intro h1 {
-				font-size: 3.5em;
-			}
-			.panel.intro p {
-				font-size: 1.25em;
-				font-weight: 400;
-				color: #aaa;
-			}
-			.panel.intro .pic {
-				position: relative;
-				display: block;
-				margin: 2em 0 0 0;
-			}
-			.panel.intro .pic img {
-				display: block;
-				width: 100%;
-			}
-			.panel.intro .pic .arrow {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				width: 6em;
-				height: 6em;
-				background: #3fadd4;
-				color: #fff;
-				text-align: center;
-				line-height: 6em;
-				font-size: 1.25em;
-				cursor: pointer;
-				/* Added: Makes the arrow look better */
-				border-radius: 50%;
-				opacity: 0.9;
-			}
-			.panel.intro .pic .arrow:hover {
-				background: #4fbdde;
-				opacity: 1;
-			}
-
-			/* Work */
-			.row {
-				display: flex;
-				flex-wrap: wrap;
-				margin: 0 0 2em 0;
-			}
-			.row > * {
-				padding: 0;
-				margin: 0;
-			}
-
-			.col-4 { width: 33.333%; }
-			.col-6 { width: 50%; }
-			.col-12 { width: 100%; }
-
-			.image.fit {
-				display: block;
-				width: 100%;
-				border-radius: 4px; /* Added rounded corners */
-				overflow: hidden;
-			}
-			.image.fit img {
-				display: block;
-				width: 100%;
-				transition: transform 0.3s ease; /* Added hover effect */
-			}
-			.image.fit a:hover img {
-				transform: scale(1.05);
-			}
-
-			.row > .col-4 {
-				padding: 0 2em 2em 0;
-			}
-			.row > .col-4:nth-child(3n) {
-				padding-right: 0;
-			}
-			.row:last-child > .col-4 {
-				padding-bottom: 0;
-			}
-
-			/* Contact */
-			form div {
-				margin-bottom: 1em;
-			}
-			form input[type=text],
-			form input[type=email],
-			form textarea {
-				-webkit-appearance: none;
-				display: block;
-				width: 100%;
-				background: #333;
-				border: 0;
-				padding: 1em;
-				color: #fff;
-				font-size: 1em;
-				border-radius: 4px; /* Added rounded corners */
-			}
-			form textarea {
-				min-height: 12em;
-			}
-			form input[type=submit] {
-				-webkit-appearance: none;
-				display: inline-block;
-				background: #3fadd4;
-				color: #fff;
-				border: 0;
-				padding: 1em 2em;
-				font-size: 1em;
-				cursor: pointer;
-				border-radius: 4px; /* Added rounded corners */
-				transition: background 0.2s ease;
-			}
-			form input[type=submit]:hover {
-				background: #4fbdde;
-			}
-
-			/* Footer */
-			#footer {
-				position: fixed;
-				bottom: 0;
-				left: 0;
-				width: 350px;
-				padding: 3em 2.5em;
-				text-align: right;
-				font-size: 0.8em;
-				color: #666;
-				z-index: 3;
-			}
-			#footer a {
-				color: #666;
-				border-bottom-color: dotted 1px #666;
-			}
-			#footer .copyright {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-			}
-			#footer .copyright li {
-				margin: 0.5em 0 0 0;
-				padding: 0;
-				border: 0;
-			}
-			#footer .copyright li:first-child {
-				margin: 0;
-			}
-
-			/* Responsive */
-			@media screen and (max-width: 1280px) {
-				body { font-size: 16pt; }
-				input, textarea, select { font-size: 16pt; }
-			}
-
-			@media screen and (max-width: 980px) {
-				#wrapper {
-					padding-left: 0;
-				}
-				#nav {
-					position: relative;
-					top: auto;
-					left: auto;
-					width: 100%;
-					height: auto; /* Allow height to adjust */
-					text-align: center;
-					padding: 1.5em 1.5em;
-				}
-				#nav a {
-					display: inline-block;
-					margin: 0 1em;
-					font-size: 1em;
-				}
-				#nav a span {
-					display: none;
-				}
-				#main article {
-					padding: 3em 1.5em 1.5em 1.5em;
-				}
-				.panel {
-					padding: 3em 1.5em 1em 1.5em;
-				}
-				.panel.intro {
-					padding-top: 3em;
-				}
-				.panel.intro h1 {
-					font-size: 2.5em;
-				}
-				#footer {
-					position: relative;
-					width: 100%;
-					text-align: center;
-					padding: 1.5em 1.5em;
-				}
-			}
-
-			@media screen and (max-width: 736px) {
-				body {
-					font-size: 14pt;
-				}
-				input, textarea, select {
-					font-size: 14pt;
-				}
-				h1 { font-size: 2em; }
-				h2 { font-size: 1.5em; }
-				h3 { font-size: 1.2em; }
-				#nav a {
-					font-size: 0.9em;
-				}
-				.row > .col-4 {
-					width: 50%;
-					padding: 0 1.5em 1.5em 0;
-				}
-				.row > .col-4:nth-child(3n) {
-					padding-right: 1.5em; /* Ensure 2-column layout spacing is correct */
-				}
-				.row > .col-4:nth-child(2n) {
-					padding-right: 0;
-				}
-				.row:last-child > .col-4 {
-					padding-bottom: 1.5em;
-				}
-			}
-
-			@media screen and (max-width: 480px) {
-				.panel.intro .pic .arrow {
-					width: 4em;
-					height: 4em;
-					line-height: 4em;
-					font-size: 1em;
-				}
-				.row > .col-4 {
-					width: 100%;
-					padding: 0 0 1.5em 0;
-				}
-				.row > .col-4:nth-child(3n), .row > .col-4:nth-child(2n) {
-					padding-right: 0;
-				}
-				.row:last-child > .col-4 {
-					padding-bottom: 1.5em;
-				}
-				.col-6 {
-					width: 100%;
-					margin-bottom: 1em;
-				}
-			}
-
-		</style>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
-		<div id="wrapper">
+		<!-- Wrapper-->
+			<div id="wrapper">
 
-				<nav id="nav">
-						<a href="#home" class="icon solid fa-home"><span>Home</span></a>
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#" class="icon solid fa-home"><span>Home</span></a>
 						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="https://twitter.com" class="icon brands fa-twitter" target="_blank" rel="noopener noreferrer"><span>Twitter</span></a>
+						<a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>Twitter</span></a>
 					</nav>
 
-				<div id="main">
+				<!-- Main -->
+        <div id="main">
 
 						<article id="home" class="panel intro">
 								<header>
@@ -476,7 +51,8 @@
 								</a>
 							</article>
 
-						<article id="work" class="panel">
+						<!-- Work -->
+							<article id="work" class="panel">
 								<header>
 									<h2>Work</h2>
 								</header>
@@ -488,46 +64,47 @@
 								<section>
 									<div class="row">
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+01" alt="Work Gallery Image 1"></a>
+											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+02" alt="Work Gallery Image 2"></a>
+											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+03" alt="Work Gallery Image 3"></a>
+											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+04" alt="Work Gallery Image 4"></a>
+											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+05" alt="Work Gallery Image 5"></a>
+											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+06" alt="Work Gallery Image 6"></a>
+											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+07" alt="Work Gallery Image 7"></a>
+											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+08" alt="Work Gallery Image 8"></a>
+											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+09" alt="Work Gallery Image 9"></a>
+											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+10" alt="Work Gallery Image 10"></a>
+											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+11" alt="Work Gallery Image 11"></a>
+											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="https://placehold.co/400x250/555/fff?text=Pic+12" alt="Work Gallery Image 12"></a>
+											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
 										</div>
 									</div>
 								</section>
 							</article>
 
-						<article id="contact" class="panel">
+						<!-- Contact -->
+							<article id="contact" class="panel">
 								<header>
 									<h2>Contact Me</h2>
 								</header>
@@ -556,93 +133,21 @@
 
 					</div>
 
-				<div id="footer">
+				<!-- Footer -->
+					<div id="footer">
 						<ul class="copyright">
-							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a></li>
+							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</div>
 
 			</div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-			<script>
-				// This script re-implements the original panel navigation logic using jQuery
-				// It handles showing/hiding panels based on the URL hash and clicks on nav links/jumplinks.
-				$(function() {
-
-					var $window = $(window),
-						$body = $('body'),
-						$nav = $('#nav'),
-						$main = $('#main');
-
-					// Deactivate all panels initially (CSS handles initial visibility, this ensures correct state)
-					$main.find('article').addClass('inactive');
-
-					// Function to handle panel activation
-					var activatePanel = function(id) {
-
-						// Ensure jQuery is available and elements exist
-						if (!$main.find(id).length) return;
-						
-						// Deactivate all panels and nav links
-						$main.find('article').removeClass('active').addClass('inactive');
-						$nav.find('a').removeClass('active');
-						
-						// Activate the target panel and nav link
-						$main.find(id).removeClass('inactive').addClass('active');
-						$nav.find('a[href="' + id + '"]').addClass('active');
-						
-						// Trigger resize to fix any layout issues, although less critical with responsive design
-						$window.trigger('resize');
-					};
-
-					// Nav links and jumplinks click handler
-					$nav.find('a').add($('.jumplink')).on('click', function(e) {
-						var href = $(this).attr('href');
-
-						// Check if the link is an internal panel link (starts with #)
-						if (href.startsWith('#')) {
-							e.preventDefault();
-
-							// If already active, do nothing
-							if ($nav.find('a[href="' + href + '"]').hasClass('active')) {
-								return;
-							}
-
-							// Activate the panel and update hash
-							activatePanel(href);
-							window.location.hash = href;
-						}
-						// External links (like Twitter) are allowed to proceed naturally
-					});
-
-					// Hashchange event handler for direct URL access or back/forward buttons
-					$window.on('hashchange', function(e) {
-						var href = window.location.hash;
-						
-						// If hash is empty or doesn't match a panel, default to #home
-						if (href === '' || !$main.find(href).length) {
-							href = '#home';
-						}
-						
-						// Activate
-						activatePanel(href);
-					});
-
-					// Initial load: check hash or default to #home
-					var initialHash = window.location.hash;
-					if (initialHash !== '' && $main.find(initialHash).length) {
-						activatePanel(initialHash);
-					} else {
-						activatePanel('#home');
-					}
-					
-					// Remove preload class to enable CSS transitions/animations
-					$body.removeClass('is-preload');
-
-				});
-			</script>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
